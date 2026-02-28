@@ -4,262 +4,43 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Registro de Clase – Musicala</title>
-
   <style>
-    :root{
-      --bg:#f7f9fc;
-      --card:#ffffff;
-      --text:#0b1020;
-      --muted:rgba(11,16,32,.65);
-      --line:rgba(11,16,32,.10);
-
-      --mozart:#0C41C4;
-      --mozart2:#08349a;
-
-      --danger:#DC2626;
-      --ok:#16a34a;
-
-      --radius-xl:24px;
-      --radius-lg:18px;
-      --radius-pill:999px;
-
-      --shadow:0 18px 40px rgba(15, 23, 42, 0.08);
-    }
-
-    *{ box-sizing:border-box; }
-
-    body{
-      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: var(--bg);
-      margin: 0;
-      padding: 0;
-      color: var(--text);
-    }
-
-    .container{
-      max-width: 980px;
-      margin: 30px auto;
-      padding: 24px 24px 32px;
-      background: var(--card);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow);
-      border: 1px solid var(--line);
-    }
-
-    .header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      margin: 2px 0 22px;
-      flex-wrap:wrap;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width: 260px;
-    }
-
-    .brand img{
-      width: 44px;
-      height: 44px;
-      object-fit: contain;
-      border-radius: 12px;
-      background: rgba(12,65,196,.06);
-      border: 1px solid rgba(12,65,196,.14);
-      padding: 6px;
-      flex: 0 0 auto;
-    }
-
-    h1{
-      margin:0;
-      font-size: 26px;
-      letter-spacing: -0.02em;
-      color: var(--mozart);
-      line-height: 1.15;
-    }
-
-    .sub{
-      margin: 4px 0 0;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .row{
-      display:flex;
-      gap: 20px;
-      margin-bottom: 20px;
-      flex-wrap:wrap;
-    }
-    .row > div{
-      flex:1;
-      min-width: 260px;
-    }
-
-    label{
-      font-size: 13px;
-      font-weight: 650;
-      color: #111827;
-      display:block;
-    }
-
-    input, select, textarea, button{
-      width: 100%;
-      padding: 10px 12px;
-      border-radius: var(--radius-pill);
-      border: 1px solid #d1d5db;
-      font-size: 14px;
-      margin-top: 6px;
-      outline: none;
-      transition: border-color 0.15s, box-shadow 0.15s, transform .06s;
-      background: #fff;
-      color: var(--text);
-    }
-
-    input:focus, select:focus, textarea:focus{
-      border-color: var(--mozart);
-      box-shadow: 0 0 0 3px rgba(12, 65, 196, 0.12);
-    }
-
-    textarea{
-      height: 120px;
-      border-radius: var(--radius-lg);
-      resize: vertical;
-      line-height: 1.35;
-    }
-
-    .btn{
-      background: var(--mozart);
-      color: white;
-      font-weight: 700;
-      cursor: pointer;
-      border: none;
-      border-radius: var(--radius-pill);
-      padding: 12px 18px;
-      margin-top: 18px;
-      user-select:none;
-    }
-    .btn:hover{ background: var(--mozart2); }
-    .btn:active{ transform: translateY(1px); }
-    .btn:disabled{
-      opacity: .6;
-      cursor:not-allowed;
-    }
-
-    .status{
-      margin-top: 14px;
-      font-size: 13px;
-      text-align: center;
-      color: var(--danger);
-      min-height: 18px;
-    }
-    .status.ok{ color: var(--ok); }
-    .status.warn{ color: var(--danger); }
+    body { font-family: "Inter", sans-serif; background: #f7f9fc; margin: 0; padding: 0; }
+    .container { max-width: 900px; margin: 30px auto; padding: 24px 24px 32px; background: #fff; border-radius: 24px; box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08); }
+    h1 { text-align: center; color: #0C41C4; margin: 0 0 30px; font-size: 28px; }
+    .row { display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap; }
+    .row > div { flex: 1; min-width: 240px; }
+    label { font-size: 14px; font-weight: 600; color: #111827; }
+    input, select, textarea, button { width: 100%; padding: 10px 12px; border-radius: 999px; border: 1px solid #d1d5db; font-size: 14px; margin-top: 6px; outline: none; transition: border-color 0.15s, box-shadow 0.15s; }
+    input:focus, select:focus, textarea:focus { border-color: #0C41C4; box-shadow: 0 0 0 1px rgba(12, 65, 196, 0.25); }
+    textarea { height: 110px; border-radius: 18px; resize: vertical; }
+    button { background: #0C41C4; color: white; font-weight: 600; cursor: pointer; border: none; border-radius: 999px; padding: 12px 18px; margin-top: 28px; }
+    button:hover { background: #08349a; }
+    .status { margin-top: 16px; font-size: 14px; text-align: center; color: #DC2626; }
 
     /* MULTI CHECKBOX UI */
-    .multi-box{
-      margin-top: 6px;
-      background: #f9fafb;
-      border-radius: var(--radius-lg);
-      border: 1px solid #e5e7eb;
-      padding: 8px 10px;
-    }
+    .multi-box { margin-top: 6px; background: #f9fafb; border-radius: 18px; border: 1px solid #e5e7eb; padding: 8px 10px; }
+    .multi-search { border-radius: 999px; border: 1px solid transparent; background: white; padding: 7px 10px; margin-bottom: 6px; font-size: 13px; }
+    .multi-search:focus { border-color: #0C41C4; box-shadow: 0 0 0 1px rgba(12, 65, 196, 0.2); outline: none; }
+    .checkbox-list { max-height: 150px; overflow-y: auto; padding-right: 4px; }
+    .check-item { display: flex; align-items: center; gap: 8px; padding: 4px 4px; border-radius: 12px; cursor: pointer; font-size: 13px; color: #111827; }
+    .check-item:hover { background: #e5e7eb; }
+    .check-item input[type="checkbox"] { width: 16px; height: 16px; border-radius: 4px; cursor: pointer; }
+    .chips { margin-top: 4px; display: flex; flex-wrap: wrap; gap: 6px; font-size: 11px; }
+    .chip { background: #e0ecff; color: #1d4ed8; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+    .help-text { font-size: 11px; color: #6b7280; margin-top: 4px; }
 
-    .multi-search{
-      border-radius: var(--radius-pill);
-      border: 1px solid transparent;
-      background: white;
-      padding: 8px 10px;
-      margin-bottom: 6px;
-      font-size: 13px;
-    }
+    .file-input { border-radius: 999px; background: #f9fafb; }
 
-    .checkbox-list{
-      max-height: 160px;
-      overflow-y: auto;
-      padding-right: 4px;
-    }
-
-    .check-item{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      padding: 6px 6px;
-      border-radius: 12px;
-      cursor: pointer;
-      font-size: 13px;
-      color: #111827;
-      user-select:none;
-    }
-    .check-item:hover{ background: #eef2ff; }
-    .check-item input[type="checkbox"]{
-      width: 16px;
-      height: 16px;
-      border-radius: 4px;
-      cursor: pointer;
-      margin: 0;
-    }
-
-    .chips{
-      margin-top: 6px;
-      display:flex;
-      flex-wrap:wrap;
-      gap: 6px;
-      font-size: 11px;
-    }
-
-    .chip{
-      background: #e0ecff;
-      color: #1d4ed8;
-      padding: 4px 10px;
-      border-radius: var(--radius-pill);
-      white-space: nowrap;
-      border: 1px solid rgba(29,78,216,.15);
-    }
-
-    .help-text{
-      font-size: 11px;
-      color: #6b7280;
-      margin-top: 6px;
-    }
-
-    .file-input{
-      border-radius: var(--radius-pill);
-      background: #f9fafb;
-    }
-
-    .divider{
-      height: 1px;
-      background: var(--line);
-      margin: 18px 0 10px;
-    }
-
-    @media (max-width: 640px){
-      .container{
-        margin: 16px;
-        padding: 18px 16px 24px;
-      }
-      .row > div{ min-width: 100%; }
-      .brand img{ width: 40px; height: 40px; }
-      h1{ font-size: 24px; }
+    @media (max-width: 640px) {
+      .container { margin: 16px; padding: 18px 16px 24px; }
     }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <div class="header">
-      <div class="brand">
-        <!-- ✅ Logo en la raíz del proyecto -->
-        <img src="logo.png" alt="Musicala" />
-        <div>
-          <h1>Registro de Clase – Musicala</h1>
-          <div class="sub">Selección múltiple de estudiantes + categorías y componentes.</div>
-        </div>
-      </div>
-    </div>
+    <h1>Registro de Clase – Musicala</h1>
 
     <!-- FECHA Y DOCENTE -->
     <div class="row">
@@ -267,7 +48,6 @@
         <label>Fecha</label>
         <input id="fecha" type="date" />
       </div>
-
       <div>
         <label>Docente</label>
         <select id="docente">
@@ -276,17 +56,17 @@
       </div>
     </div>
 
-    <!-- ESTUDIANTES + CATEGORÍAS -->
+    <!-- ESTUDIANTES (MULTI) + CATEGORÍAS -->
     <div class="row">
       <div>
-        <label>Estudiantes</label>
+        <label>Estudiante</label>
         <div class="multi-box">
           <input
             type="text"
-            id="filtro-estudiante"
+            id="filtro-estudiantes"
             class="multi-search"
             placeholder="Escribe para filtrar estudiantes..."
-            oninput="filtrarCheckboxes('filtro-estudiante','lista-estudiantes')"
+            oninput="filtrarCheckboxes('filtro-estudiantes','lista-estudiantes')"
           />
           <div id="lista-estudiantes" class="checkbox-list"></div>
           <div id="chips-estudiantes" class="chips"></div>
@@ -294,6 +74,7 @@
         </div>
       </div>
 
+      <!-- CATEGORÍAS -->
       <div>
         <label>Categorías</label>
         <div class="multi-box">
@@ -317,35 +98,20 @@
       <textarea id="tareasObs" placeholder="Logros, dificultades, acuerdos, tareas..."></textarea>
     </div>
 
-    <div class="divider"></div>
-
     <!-- COMPONENTES -->
     <div class="row">
       <div>
         <label>Componente corporal</label>
         <div class="multi-box">
-          <input
-            type="text"
-            id="filtro-corporal"
-            class="multi-search"
-            placeholder="Escribe para filtrar..."
-            oninput="filtrarCheckboxes('filtro-corporal','lista-corporal')"
-          />
+          <input type="text" id="filtro-corporal" class="multi-search" placeholder="Escribe para filtrar..." oninput="filtrarCheckboxes('filtro-corporal','lista-corporal')" />
           <div id="lista-corporal" class="checkbox-list"></div>
           <div id="chips-corporal" class="chips"></div>
         </div>
       </div>
-
       <div>
         <label>Componente técnico</label>
         <div class="multi-box">
-          <input
-            type="text"
-            id="filtro-tecnico"
-            class="multi-search"
-            placeholder="Escribe para filtrar..."
-            oninput="filtrarCheckboxes('filtro-tecnico','lista-tecnico')"
-          />
+          <input type="text" id="filtro-tecnico" class="multi-search" placeholder="Escribe para filtrar..." oninput="filtrarCheckboxes('filtro-tecnico','lista-tecnico')" />
           <div id="lista-tecnico" class="checkbox-list"></div>
           <div id="chips-tecnico" class="chips"></div>
         </div>
@@ -356,28 +122,15 @@
       <div>
         <label>Componente teórico</label>
         <div class="multi-box">
-          <input
-            type="text"
-            id="filtro-teorico"
-            class="multi-search"
-            placeholder="Escribe para filtrar..."
-            oninput="filtrarCheckboxes('filtro-teorico','lista-teorico')"
-          />
+          <input type="text" id="filtro-teorico" class="multi-search" placeholder="Escribe para filtrar..." oninput="filtrarCheckboxes('filtro-teorico','lista-teorico')" />
           <div id="lista-teorico" class="checkbox-list"></div>
           <div id="chips-teorico" class="chips"></div>
         </div>
       </div>
-
       <div>
         <label>Componente de obras</label>
         <div class="multi-box">
-          <input
-            type="text"
-            id="filtro-obras"
-            class="multi-search"
-            placeholder="Escribe para filtrar..."
-            oninput="filtrarCheckboxes('filtro-obras','lista-obras')"
-          />
+          <input type="text" id="filtro-obras" class="multi-search" placeholder="Escribe para filtrar..." oninput="filtrarCheckboxes('filtro-obras','lista-obras')" />
           <div id="lista-obras" class="checkbox-list"></div>
           <div id="chips-obras" class="chips"></div>
         </div>
@@ -390,67 +143,51 @@
         <label>Archivos / Imágenes (opcional)</label>
         <input id="imagenFile" class="file-input" type="file" accept="image/*, application/pdf" />
       </div>
-
       <div>
         <label>Videos (opcional)</label>
         <input id="videoFile" class="file-input" type="file" accept="video/*" />
       </div>
     </div>
 
-    <button id="btnEnviar" class="btn" onclick="enviarRegistro()">Enviar registro</button>
+    <button onclick="enviarRegistro()">Enviar registro</button>
     <div class="status" id="status"></div>
   </div>
 
   <script>
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzb_d9d4vvXuEAEAHq7fyV3CFAZQlXGnBH0BoaGTDysodL-nQleWleNCMrpENpjZQxjkg/exec"; // <--- CAMBIA ESTO
 
-    const $ = (id) => document.getElementById(id);
-
-    function setStatus(msg, kind = "warn") {
-      const el = $("status");
-      el.textContent = msg || "";
-      el.className = "status" + (kind ? " " + kind : "");
-    }
-
-    function setSending(isSending) {
-      const btn = $("btnEnviar");
-      if (!btn) return;
-      btn.disabled = !!isSending;
-      btn.textContent = isSending ? "Enviando..." : "Enviar registro";
-    }
-
     /****************************************************
      * Cargar listas desde Apps Script
      ****************************************************/
     async function cargarListas() {
       try {
-        setStatus("Cargando listas...", "");
-        const res = await fetch(`${SCRIPT_URL}?action=options`, { cache: "no-store" });
+        const res = await fetch(`${SCRIPT_URL}?action=options`);
         const data = await res.json();
 
         cargarSelect("docente", data.docentes);
 
-        // ✅ Estudiantes ahora es multi-checkbox
+        // ✅ Estudiantes ahora van a lista de checkboxes multi
         cargarCheckboxList("lista-estudiantes", data.estudiantes);
 
         cargarCheckboxList("lista-categorias", data.categorias);
-        cargarCheckboxList("lista-corporal",   data.corporal);
-        cargarCheckboxList("lista-tecnico",    data.tecnico);
-        cargarCheckboxList("lista-teorico",    data.teorico);
-        cargarCheckboxList("lista-obras",      data.obras);
+        cargarCheckboxList("lista-corporal", data.corporal);
+        cargarCheckboxList("lista-tecnico", data.tecnico);
+        cargarCheckboxList("lista-teorico", data.teorico);
+        cargarCheckboxList("lista-obras", data.obras);
 
+        // Render inicial chips (vacío)
         actualizarChips();
-        setStatus("", "");
+
       } catch (e) {
-        setStatus("⚠ No se pudieron cargar las listas.", "warn");
+        document.getElementById("status").textContent = "⚠ No se pudieron cargar las listas.";
       }
     }
 
     /****************************************************
-     * Select normal (con placeholder en DOCENTE)
+     * Select normal (pero con placeholder en DOCENTE)
      ****************************************************/
     function cargarSelect(id, lista) {
-      const select = $(id);
+      const select = document.getElementById(id);
       select.innerHTML = "";
 
       if (id === "docente") {
@@ -475,7 +212,7 @@
      * Crear lista de checkboxes
      ****************************************************/
     function cargarCheckboxList(containerId, lista) {
-      const cont = $(containerId);
+      const cont = document.getElementById(containerId);
       cont.innerHTML = "";
 
       (lista || []).forEach(item => {
@@ -497,37 +234,36 @@
     }
 
     /****************************************************
-     * Filtro para checkboxes
+     * Filtros
      ****************************************************/
     function filtrarCheckboxes(inputId, containerId) {
-      const filtro = $(inputId).value.toLowerCase().trim();
-      const cont = $(containerId);
+      const filtro = document.getElementById(inputId).value.toLowerCase();
+      const cont = document.getElementById(containerId);
 
       Array.from(cont.children).forEach(label => {
-        const texto = (label.textContent || "").toLowerCase();
-        label.style.display = !filtro || texto.includes(filtro) ? "flex" : "none";
+        const texto = label.textContent.toLowerCase();
+        label.style.display = texto.includes(filtro) ? "flex" : "none";
       });
     }
 
     /****************************************************
-     * Chips resumen
+     * Chips resumen (incluye estudiantes)
      ****************************************************/
     function actualizarChips() {
       const grupos = [
         ["lista-estudiantes", "chips-estudiantes"],
-        ["lista-categorias",  "chips-categorias"],
-        ["lista-corporal",    "chips-corporal"],
-        ["lista-tecnico",     "chips-tecnico"],
-        ["lista-teorico",     "chips-teorico"],
-        ["lista-obras",       "chips-obras"]
+        ["lista-categorias", "chips-categorias"],
+        ["lista-corporal", "chips-corporal"],
+        ["lista-tecnico", "chips-tecnico"],
+        ["lista-teorico", "chips-teorico"],
+        ["lista-obras", "chips-obras"]
       ];
 
       grupos.forEach(([listaId, chipsId]) => {
-        const cont = $(listaId);
-        const chipsBox = $(chipsId);
-        if (!cont || !chipsBox) return;
-
+        const cont = document.getElementById(listaId);
+        const chipsBox = document.getElementById(chipsId);
         chipsBox.innerHTML = "";
+
         Array.from(cont.querySelectorAll("input:checked"))
           .map(chk => chk.value)
           .forEach(val => {
@@ -545,77 +281,98 @@
     function fileToBase64(file) {
       return new Promise(resolve => {
         if (!file) return resolve(null);
-
         const reader = new FileReader();
         reader.onload = () => resolve({
-          base64: String(reader.result || "").split(",")[1] || "",
-          name: file.name || "",
-          type: file.type || ""
+          base64: reader.result.split(",")[1],
+          name: file.name,
+          type: file.type
         });
         reader.readAsDataURL(file);
       });
     }
 
     /****************************************************
-     * Validaciones mínimas
-     ****************************************************/
-    function validar(payload) {
-      if (!payload.fecha) return "Falta la fecha.";
-      if (!payload.docente) return "Selecciona un docente.";
-      if (!payload.estudiantes) return "Selecciona al menos un estudiante.";
-      return "";
-    }
-
-    /****************************************************
      * Limpiar formulario
      ****************************************************/
     function limpiarFormulario() {
-      $("fecha").value = "";
-      $("docente").selectedIndex = 0;
+      document.getElementById("fecha").value = "";
+      document.getElementById("docente").selectedIndex = 0;
 
-      $("filtro-estudiante").value = "";
-      $("filtro-categorias").value = "";
-      $("filtro-corporal").value = "";
-      $("filtro-tecnico").value = "";
-      $("filtro-teorico").value = "";
-      $("filtro-obras").value = "";
+      // ✅ limpiar estudiantes multi
+      document.getElementById("filtro-estudiantes").value = "";
+      document.querySelectorAll(`#lista-estudiantes input[type="checkbox"]`)
+        .forEach(chk => chk.checked = false);
 
-      $("tareasObs").value = "";
+      document.getElementById("tareasObs").value = "";
 
-      [
-        "lista-estudiantes",
-        "lista-categorias",
-        "lista-corporal",
-        "lista-tecnico",
-        "lista-teorico",
-        "lista-obras"
-      ].forEach(id => {
-        document.querySelectorAll(`#${id} input[type="checkbox"]`)
-          .forEach(chk => chk.checked = false);
-      });
+      ["lista-categorias","lista-corporal","lista-tecnico","lista-teorico","lista-obras"]
+        .forEach(id => {
+          document.querySelectorAll(`#${id} input[type="checkbox"]`)
+            .forEach(chk => chk.checked = false);
+        });
 
-      [
-        "chips-estudiantes",
-        "chips-categorias",
-        "chips-corporal",
-        "chips-tecnico",
-        "chips-teorico",
-        "chips-obras"
-      ].forEach(id => {
-        const box = $(id);
-        if (box) box.innerHTML = "";
-      });
+      ["chips-estudiantes","chips-categorias","chips-corporal","chips-tecnico","chips-teorico","chips-obras"]
+        .forEach(id => document.getElementById(id).innerHTML = "");
 
-      $("imagenFile").value = "";
-      $("videoFile").value = "";
+      ["filtro-categorias","filtro-corporal","filtro-tecnico","filtro-teorico","filtro-obras"]
+        .forEach(id => document.getElementById(id).value = "");
 
-      // re-mostrar todo (por si había filtros)
-      filtrarCheckboxes("filtro-estudiante", "lista-estudiantes");
-      filtrarCheckboxes("filtro-categorias", "lista-categorias");
-      filtrarCheckboxes("filtro-corporal", "lista-corporal");
-      filtrarCheckboxes("filtro-tecnico", "lista-tecnico");
-      filtrarCheckboxes("filtro-teorico", "lista-teorico");
-      filtrarCheckboxes("filtro-obras", "lista-obras");
+      document.getElementById("imagenFile").value = "";
+      document.getElementById("videoFile").value = "";
+    }
+
+    /****************************************************
+     * Enviar registro
+     ****************************************************/
+    async function enviarRegistro() {
+      document.getElementById("status").textContent = "Enviando registro...";
+
+      const imagen = await fileToBase64(document.getElementById("imagenFile").files[0]);
+      const video  = await fileToBase64(document.getElementById("videoFile").files[0]);
+
+      // ✅ estudiantes seleccionados como string "A, B, C" (igual que categorías)
+      const estudiantesSeleccionados = obtenerSeleccionados("lista-estudiantes");
+
+      const payload = {
+        fecha: document.getElementById("fecha").value,
+        docente: document.getElementById("docente").value,
+
+        // 👇 mantenemos el mismo nombre de campo para no romper Apps Script
+        estudiante: estudiantesSeleccionados,
+
+        tareasObs: document.getElementById("tareasObs").value,
+
+        categorias: obtenerSeleccionados("lista-categorias"),
+        corporal: obtenerSeleccionados("lista-corporal"),
+        tecnico: obtenerSeleccionados("lista-tecnico"),
+        teorico: obtenerSeleccionados("lista-teorico"),
+        obras: obtenerSeleccionados("lista-obras"),
+
+        imagenBase64: imagen?.base64 || "",
+        imagenName:   imagen?.name   || "",
+        imagenType:   imagen?.type   || "",
+
+        videoBase64:  video?.base64  || "",
+        videoName:    video?.name    || "",
+        videoType:    video?.type    || ""
+      };
+
+      try {
+        const res = await fetch(SCRIPT_URL, {
+          method: "POST",
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+
+        if (data.ok) {
+          document.getElementById("status").textContent = "✔ Registro enviado con éxito.";
+          limpiarFormulario();
+        } else {
+          document.getElementById("status").textContent = "⚠ Error: " + (data.error || "");
+        }
+      } catch (err) {
+        document.getElementById("status").textContent = "❌ Error al enviar. Verifica permisos.";
+      }
     }
 
     function obtenerSeleccionados(listaId) {
@@ -624,81 +381,7 @@
       ).map(chk => chk.value).join(", ");
     }
 
-    /****************************************************
-     * Enviar registro
-     ****************************************************/
-    async function enviarRegistro() {
-      setSending(true);
-      setStatus("Enviando registro...", "");
-
-      const imagen = await fileToBase64($("imagenFile").files[0]);
-      const video  = await fileToBase64($("videoFile").files[0]);
-
-      const payload = {
-        fecha: $("fecha").value,
-        docente: $("docente").value,
-
-        // ✅ ahora múltiples
-        estudiantes: obtenerSeleccionados("lista-estudiantes"),
-
-        tareasObs: $("tareasObs").value,
-
-        categorias: obtenerSeleccionados("lista-categorias"),
-        corporal:   obtenerSeleccionados("lista-corporal"),
-        tecnico:    obtenerSeleccionados("lista-tecnico"),
-        teorico:    obtenerSeleccionados("lista-teorico"),
-        obras:      obtenerSeleccionados("lista-obras"),
-
-        imagenBase64: imagen?.base64 || "",
-        imagenName:   imagen?.name || "",
-        imagenType:   imagen?.type || "",
-
-        videoBase64: video?.base64 || "",
-        videoName:   video?.name || "",
-        videoType:   video?.type || ""
-      };
-
-      const err = validar(payload);
-      if (err) {
-        setStatus("⚠ " + err, "warn");
-        setSending(false);
-        return;
-      }
-
-      try {
-        const res = await fetch(SCRIPT_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload)
-        });
-
-        const data = await res.json();
-
-        if (data.ok) {
-          setStatus("✔ Registro enviado con éxito.", "ok");
-          limpiarFormulario();
-        } else {
-          setStatus("⚠ Error: " + (data.error || "No especificado"), "warn");
-        }
-      } catch (err2) {
-        setStatus("❌ Error al enviar. Verifica permisos o URL del Script.", "warn");
-      } finally {
-        setSending(false);
-      }
-    }
-
-    /****************************************************
-     * Init: fecha hoy + cargar listas
-     ****************************************************/
-    (function init(){
-      const today = new Date();
-      const yyyy = today.getFullYear();
-      const mm = String(today.getMonth() + 1).padStart(2, "0");
-      const dd = String(today.getDate()).padStart(2, "0");
-      $("fecha").value = `${yyyy}-${mm}-${dd}`;
-
-      cargarListas();
-    })();
+    cargarListas();
   </script>
 </body>
 </html>
